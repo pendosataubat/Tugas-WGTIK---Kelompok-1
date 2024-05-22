@@ -1,3 +1,9 @@
+/*TUGAS WGTIK KELOMPOK 1
+Anggota kelompok:
+1. Azzuro Adya Marva Purba
+2. Najmi Iqbal Hanif
+3. Rizky Riza Fahrezi*/
+
 package main
 
 // Vehicle struct untuk menyimpan informasi kendaraan
@@ -90,5 +96,19 @@ func CheckViolation(tanggal int, kendaraan []Vehicle) []Violation {
 	return pelanggaran
 }
 
+func main() {
+	vehicles := []Vehicle{
+		{DriverName: "Andi", PlateNumber: "B 1234 XYZ", Type: "Mobil", Routes: []string{"Gajah Mada"}},
+		{DriverName: "Budi", PlateNumber: "B 5678 ABC", Type: "Mobil", Routes: []string{"Hayam Wuruk", "Sisingamangaraja", "Panglima Polim"}},
+		{DriverName: "Citra", PlateNumber: "B 4444 DEF", Type: "Motor", Routes: []string{"Sisingamangaraja"}},
+		{DriverName: "Dedi", PlateNumber: "B 9876 GHI", Type: "Mobil", Routes: []string{"Panglima Polim", "Hayam Wuruk"}},
+		{DriverName: "Eka", PlateNumber: "B 2468 JKL", Type: "Mobil", Routes: []string{"Tomang Raya"}},
+	}
 
+	violations := CheckViolation(15, vehicles)
+
+	for _, violation := range violations {
+		fmt.Printf("Pengendara %s dengan plat melanggar di rute sebanyak %d kali pada tanggal 15\n", violation.DriverName, violation.Count)
+	}
+}
 
